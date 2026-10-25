@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100d0f">
+  <title>Between the Pages | A Romance Book Haven</title>
+  <meta name="description" content="Discover your next romance obsession. Explore BookTok favorites, romance tropes, reader reviews, and your personal reading list.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home">
+      <span class="brand-mark">B<span>&</span>P</span>
+      <span class="brand-name">BETWEEN THE PAGES
+        <small>FOR THE LOVE OF STORIES</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#catalog">Explore Books</a>
+      <a href="#recommendations">For You</a>
+      <a href="#reading-list">My Reading List</a>
+    </nav>
+
+    <a href="#reading-list" class="nav-saved">
+      ♥ <span id="saved-count">0</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">✦ YOUR NEXT OBSESSION STARTS HERE ✦</p>
+        <h1>Some stories<br>leave <em>marks.</em></h1>
+        <p class="hero-description">
+          For the ones who fall for fictional men, impossible love,
+          dangerous secrets, and endings that live rent-free in their minds.
+        </p>
+        <div class="hero-actions">
+          <a href="#catalog" class="button button-primary">Explore the library ↗</a>
+          <a href="#reading-list" class="button button-outline">My reading list ♡</a>
+        </div>
+        <div class="hero-note">A LITTLE DARKNESS. A LOT OF FEELINGS.</div>
+      </div>
+
+      <div class="hero-art" aria-label="Featured romance novels">
+        <div class="hero-glow"></div>
+        <div class="floating-note">FORBIDDEN<br><span>FEELINGS</span></div>
+        <div class="hero-cover cover-back">
+          <img src="https://covers.openlibrary.org/b/isbn/9781538724736-L.jpg" alt="The Fine Print book cover">
+        </div>
+        <div class="hero-cover cover-front">
+          <img src="https://covers.openlibrary.org/b/isbn/9781728274867-L.jpg" alt="Twisted Love book cover">
+        </div>
+        <div class="hero-caption">ONE MORE CHAPTER...</div>
+      </div>
+    </section>
+
+    <section class="mood-strip" aria-label="Romance genres">
+      <span>ENEMIES TO LOVERS</span><i>✦</i>
+      <span>DARK ROMANCE</span><i>✦</i>
+      <span>SLOW BURN</span><i>✦</i>
+      <span>FICTIONAL MEN</span><i>✦</i>
+      <span>BOOKTOK FAVORITES</span>
+    </section>
+
+    <section class="section catalog-section" id="catalog">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE BOOKS WE CAN'T STOP THINKING ABOUT</p>
+          <h2>Enter the <em>library.</em></h2>
+          <p class="section-description">Find the plot, the tension, and the fictional person who ruins real-life standards.</p>
+        </div>
+        <span class="book-count" id="book-count">0 BOOKS</span>
+      </div>
+
+      <div class="search-panel">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" type="search"
+            placeholder="Search titles, authors, or tropes..."
+            aria-label="Search books">
+          <button id="clear-search" type="button" aria-label="Clear search">×</button>
+        </label>
+
+        <label class="sort-control">
+          <span>Sort:</span>
+          <select id="sort-select" aria-label="Sort books">
+            <option value="featured">Featured</option>
+            <option value="rating">Highest rated</option>
+            <option value="title">Title A–Z</option>
+            <option value="spice">Spice level</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="filter-heading">CHOOSE YOUR POISON <span>♡</span></div>
+      <div class="trope-filters" id="trope-filters">
+        <button class="filter-chip active" data-trope="all">All books</button>
+        <button class="filter-chip" data-trope="Enemies to lovers">Enemies to lovers</button>
+        <button class="filter-chip" data-trope="Billionaire">Billionaire</button>
+        <button class="filter-chip" data-trope="Sports romance">Sports romance</button>
+        <button class="filter-chip" data-trope="Fake dating">Fake dating</button>
+        <button class="filter-chip" data-trope="Forced proximity">Forced proximity</button>
+        <button class="filter-chip" data-trope="Dark romance">Dark romance</button>
+        <button class="filter-chip" data-trope="Fantasy romance">Fantasy romance</button>
+        <button class="filter-chip" data-trope="Friends to lovers">Friends to lovers</button>
+        <button class="filter-chip" data-trope="Slow burn">Slow burn</button>
+      </div>
+
+      <div class="catalog-meta">
+        <span id="results-label">ALL THE FEELS, ALL THE BOOKS</span>
+        <button id="reset-filters" class="text-button" type="button">Reset filters ↺</button>
+      </div>
+
+      <div class="book-grid" id="book-grid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="empty-state">
+        <span>🥀</span>
+        <h3>No stories found...</h3>
+        <p>Maybe your next obsession is hiding under another trope.</p>
+        <button class="button button-primary" id="empty-reset" type="button">Show me all books</button>
+      </div>
+    </section>
+
+    <section class="recommendation-section" id="recommendations">
+      <div class="recommendation-inner">
+        <div>
+          <p class="eyebrow">YOUR NEXT FICTIONAL OBSESSION</p>
+          <h2>Picked for <em>your taste.</em></h2>
+          <p class="section-description">
+            Save books you love and we'll suggest other stories with similar tropes.
+          </p>
+        </div>
+        <button id="refresh-recommendations" class="button button-outline" type="button">
+          Find my next read ↗
+        </button>
+      </div>
+      <div id="recommendation-grid" class="book-grid recommendation-grid"></div>
+      <p id="recommendation-note" class="recommendation-note"></p>
+    </section>
+
+    <section class="section reading-section" id="reading-list">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR PERSONAL LITTLE CORNER</p>
+          <h2>The TBR <em>diaries.</em></h2>
+          <p class="section-description">Your unread books, current obsessions, and stories you've survived.</p>
+        </div>
+        <span class="book-count" id="reading-count">0 SAVED</span>
+      </div>
+
+      <div class="reading-tabs" id="reading-tabs">
+        <button class="reading-tab active" data-status="all">All saved</button>
+        <button class="reading-tab" data-status="want">Want to read</button>
+        <button class="reading-tab" data-status="reading">Currently reading</button>
+        <button class="reading-tab" data-status="finished">Finished</button>
+      </div>
+
+      <div class="book-grid" id="reading-grid"></div>
+      <div class="empty-state" id="reading-empty">
+        <span>♡</span>
+        <h3>Your next chapter awaits.</h3>
+        <p>Save a book from the library and it'll appear here.</p>
+        <a href="#catalog" class="button button-primary">Find a book</a>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <span class="quote-mark">“</span>
+      <blockquote>We read to feel things we can't explain.</blockquote>
+      <p>FOR THE STORIES THAT STAY WITH US.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a href="#home" class="footer-brand">BETWEEN THE PAGES <span>♡</span></a>
+    <p>A love letter to romance readers everywhere.</p>
+    <p class="footer-small">An independent fan-made discovery site. Book covers belong to their respective publishers and authors.</p>
+    <p class="footer-small">© <span id="year"></span> Between the Pages</p>
+  </footer>
+
+  <dialog id="book-dialog" class="book-dialog">
+    <button type="button" id="close-dialog" class="dialog-close" aria-label="Close book details">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
